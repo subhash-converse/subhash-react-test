@@ -1,9 +1,16 @@
 import { create } from 'zustand';
 
 interface States {
-  count: number;
+    count: number;
+}
+interface Actions {
+  increase: () => void;
+  decrease: () => void;
 }
 
-export const useCountStore = create<States>(() => ({
-  count: 0,
+
+export const useCountStore = create<States & Actions>((set) => ({
+    count: 0,
+    increase: () => set((state) => ({ count: state.count + 1 })),
+    decrease: () => set((state) => ({ count: state.count - 1 })),
 }));
