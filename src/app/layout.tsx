@@ -26,10 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} !bg-red-300 antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="grid h-screen grid-rows-[80px_1fr]">
           <TopBar />
-          <div className="grid grid-cols-[auto_1fr]">
+          <div className="grid grid-cols-[auto_1fr] duration-50000 transition-all">
             <SideNavbar />
             <div>{children}</div>
           </div>

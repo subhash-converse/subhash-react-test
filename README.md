@@ -2,4 +2,5 @@
 
 1. Next project setup with prettier & zustand
 2) setup the folder structure
-3)
+3) add all shadcn component
+4) Navbar layout setup and mock api implementation
