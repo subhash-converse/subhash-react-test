@@ -1,7 +1,8 @@
+import DataVisualizationClient from '@/client-components/data-visualization';
 import React from 'react';
 
 const DataVisualization = () => {
-  return <div>DataVisualization</div>;
+  return <DataVisualizationClient/>;
 };
 
 export default DataVisualization;
