@@ -1,7 +1,15 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
-export default function Example1({data}:{data:any}) {
-  
+export default function Example1({ data }: { data: any }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart

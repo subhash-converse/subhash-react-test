@@ -1,6 +1,6 @@
 import { Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
-export default function Example({data}:{data:any}) {
+export default function Example({ data }: { data: any }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <PieChart width={400} height={400}>

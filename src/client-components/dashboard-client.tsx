@@ -1,12 +1,6 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+'use client';
+import React, { useEffect, useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
   TableBody,
@@ -14,12 +8,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table';
 import { AxiosInstance } from '../../services/axiosInstance';
-import { FaMinus,FaPlus } from "react-icons/fa"
-
-
-
+import { FaMinus, FaPlus } from 'react-icons/fa';
 
 interface Transaction {
   id: string;
@@ -30,113 +21,120 @@ interface Transaction {
   type: 'income' | 'expense';
 }
 
-
 type DataInterFace = {
-  "total_balance": number,
-  "monthly_income": number,
-  "monthly_expences": number,
-  "savings_rate": number,
-  "percentage-changes": number,
-  "recent-transactions": Transaction[]
-}
+  total_balance: number;
+  monthly_income: number;
+  monthly_expences: number;
+  savings_rate: number;
+  'percentage-changes': number;
+  'recent-transactions': Transaction[];
+};
 
 const DashboardClient = () => {
-  const [data, setData] = useState<DataInterFace>()
+  const [data, setData] = useState<DataInterFace>();
   useEffect(() => {
     AxiosInstance.get('/transactions')
-      .then(response => {
+      .then((response) => {
         setData(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         // setError(error.message);
       });
   }, []);
 
   return (
-    <div className='bg-red-100 p-3 rounded-xl h-full overflow-auto grid grid-rows-[auto_1fr] gap-8'>
-      <div className='grid grid-rows-4 gap-2 md:grid-cols-4 md:grid-rows-1 md:gap-7 w-full '>
-        <Card className=' hover:bg-gray-50 hover:scale-105 hover:shadow-lg duration-200'>
+    <div className="grid h-full grid-rows-[auto_1fr] gap-8 overflow-auto rounded-xl bg-red-100 p-3">
+      <div className="grid w-full grid-rows-4 gap-2 md:grid-cols-4 md:grid-rows-1 md:gap-7">
+        <Card className="duration-200 hover:scale-105 hover:bg-gray-50 hover:shadow-lg">
           <CardHeader>
-            <CardTitle className='text-xl font-bold'>Total Balance</CardTitle>
+            <CardTitle className="text-xl font-bold">Total Balance</CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`₹ ${data?.total_balance}`}</p>
+            <p className="text-end text-2xl font-bold">{`₹ ${data?.total_balance}`}</p>
           </CardContent>
-
         </Card>
-        <Card className=' hover:bg-gray-50 hover:scale-105 hover:shadow-lg duration-200'>
+        <Card className="duration-200 hover:scale-105 hover:bg-gray-50 hover:shadow-lg">
           <CardHeader>
-            <CardTitle className='text-xl font-bold'>Monthly Income</CardTitle>
+            <CardTitle className="text-xl font-bold">Monthly Income</CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`₹ ${data?.monthly_income}`}</p>
+            <p className="text-end text-2xl font-bold">{`₹ ${data?.monthly_income}`}</p>
           </CardContent>
-
         </Card>
-        <Card className=' hover:bg-gray-50 hover:scale-105 hover:shadow-lg duration-200'>
+        <Card className="duration-200 hover:scale-105 hover:bg-gray-50 hover:shadow-lg">
           <CardHeader>
-            <CardTitle className='text-xl font-bold'>Monthly Expenses</CardTitle>
+            <CardTitle className="text-xl font-bold">Monthly Expenses</CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`₹ ${data?.monthly_expences}`}</p>
+            <p className="text-end text-2xl font-bold">{`₹ ${data?.monthly_expences}`}</p>
           </CardContent>
-
         </Card>
-        <Card className=' hover:bg-gray-50 hover:scale-105 hover:shadow-lg duration-200'>
+        <Card className="duration-200 hover:scale-105 hover:bg-gray-50 hover:shadow-lg">
           <CardHeader>
-            <CardTitle className='text-xl font-bold'>Savings Rate</CardTitle>
+            <CardTitle className="text-xl font-bold">Savings Rate</CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`${data?.savings_rate}%`}</p>
+            <p className="text-end text-2xl font-bold">{`${data?.savings_rate}%`}</p>
           </CardContent>
-
         </Card>
       </div>
-      <div className='grid grid-rows-[auto_1fr] gap-3  md:gap-8'>
-        <Card className=' hover:bg-gray-50 hover:scale-100 hover:shadow-lg duration-200 '>
+      <div className="grid grid-rows-[auto_1fr] gap-3 md:gap-8">
+        <Card className="duration-200 hover:scale-100 hover:bg-gray-50 hover:shadow-lg">
           <CardHeader>
-            <CardTitle className='text-xl font-bold'>Percentage Changes </CardTitle>
+            <CardTitle className="text-xl font-bold">Percentage Changes </CardTitle>
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`${data?.['percentage-changes']}%`}</p>
+            <p className="text-end text-2xl font-bold">{`${data?.['percentage-changes']}%`}</p>
           </CardContent>
-
         </Card>
         <div>
-          <Table className='bg-white rounded-xl'>
-            <TableHeader className='text-lg bg-gray-50 h-[50px]'>
+          <Table className="rounded-xl bg-white">
+            <TableHeader className="h-[50px] bg-gray-50 text-lg">
               <TableRow>
                 <TableHead className="w-[100px]">Id</TableHead>
                 <TableHead>Amount</TableHead>
                 <TableHead>Category</TableHead>
                 <TableHead>Description</TableHead>
                 <TableHead>Date</TableHead>
-                <TableHead >Type</TableHead>
+                <TableHead>Type</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {Array.isArray(data?.['recent-transactions']) && data?.['recent-transactions'] .map((transactions,index) => (
-                <TableRow key={index} className='hover:bg-gray-50 h-[50px]'>
-                  <TableCell className="font-medium">{transactions.id}</TableCell>
-                  <TableCell>{transactions.amount}</TableCell>
-                  <TableCell>{transactions.category}</TableCell>
-                  <TableCell>{transactions.description}</TableCell>
-                  <TableCell>{transactions.date}</TableCell>
-                  <TableCell><div className='flex gap-2 items-center'>{transactions.type === "income" ? <span className='text-green-400'><FaPlus/></span>  : <span className='text-red-400'><FaMinus/></span>} <span>{transactions.type}</span></div></TableCell>
-                </TableRow>
-              ))}
+              {Array.isArray(data?.['recent-transactions']) &&
+                data?.['recent-transactions'].map((transactions, index) => (
+                  <TableRow key={index} className="h-[50px] hover:bg-gray-50">
+                    <TableCell className="font-medium">{transactions.id}</TableCell>
+                    <TableCell>{transactions.amount}</TableCell>
+                    <TableCell>{transactions.category}</TableCell>
+                    <TableCell>{transactions.description}</TableCell>
+                    <TableCell>{transactions.date}</TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        {transactions.type === 'income' ? (
+                          <span className="text-green-400">
+                            <FaPlus />
+                          </span>
+                        ) : (
+                          <span className="text-red-400">
+                            <FaMinus />
+                          </span>
+                        )}{' '}
+                        <span>{transactions.type}</span>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default DashboardClient
+export default DashboardClient;

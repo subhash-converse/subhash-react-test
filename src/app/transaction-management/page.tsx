@@ -2,7 +2,7 @@ import TransactionManagementClient from '@/client-components/transaction-managem
 import React from 'react';
 
 const TransactionManagement = () => {
-  return <TransactionManagementClient/>;
+  return <TransactionManagementClient />;
 };
 
 export default TransactionManagement;

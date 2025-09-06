@@ -1,6 +1,6 @@
-"use client"
-import React from 'react'
-import { Input } from "@/components/ui/input"
+'use client';
+import React from 'react';
+import { Input } from '@/components/ui/input';
 
 import {
   Select,
@@ -9,12 +9,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from '@/components/ui/select';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
-
 
 import {
   Pagination,
@@ -24,7 +23,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"
+} from '@/components/ui/pagination';
 
 import {
   Table,
@@ -35,126 +34,120 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table';
 
 const invoices = [
   {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
+    invoice: 'INV001',
+    paymentStatus: 'Paid',
+    totalAmount: '$250.00',
+    paymentMethod: 'Credit Card',
   },
   {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
+    invoice: 'INV002',
+    paymentStatus: 'Pending',
+    totalAmount: '$150.00',
+    paymentMethod: 'PayPal',
   },
   {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
+    invoice: 'INV003',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$350.00',
+    paymentMethod: 'Bank Transfer',
   },
   {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
+    invoice: 'INV004',
+    paymentStatus: 'Paid',
+    totalAmount: '$450.00',
+    paymentMethod: 'Credit Card',
   },
   {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
+    invoice: 'INV005',
+    paymentStatus: 'Paid',
+    totalAmount: '$550.00',
+    paymentMethod: 'PayPal',
   },
   {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
+    invoice: 'INV006',
+    paymentStatus: 'Pending',
+    totalAmount: '$200.00',
+    paymentMethod: 'Bank Transfer',
   },
   {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
+    invoice: 'INV007',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$300.00',
+    paymentMethod: 'Credit Card',
   },
-]
+];
 
 const categories = [
   {
-    label: "Food",
-    value: "food"
+    label: 'Food',
+    value: 'food',
   },
   {
-    label: "Transport",
-    value: "transport"
+    label: 'Transport',
+    value: 'transport',
   },
   {
-    label: "Entertainment",
-    value: "entertainment"
+    label: 'Entertainment',
+    value: 'entertainment',
   },
   {
-    label: "Bills",
-    value: "bills"
+    label: 'Bills',
+    value: 'bills',
   },
   {
-    label: "Income",
-    value: "income"
+    label: 'Income',
+    value: 'income',
   },
   {
-    label: "Snaks",
-    value: "snaks"
+    label: 'Snaks',
+    value: 'snaks',
   },
-]
+];
 
 const TransactionManagementClient = () => {
   return (
-    <div className=' bg-red-100 p-3 rounded-xl h-full overflow-auto grid grid-rows-[1fr_80px] gap-8'>
-      <div className='grid grid-rows-[auto_1fr] gap-5'>
-        <div className='bg-white rounded-xl py-4 xl:py-0  grid md:grid-cols-[1fr_1fr] md:grid-rows-2 xl:grid-cols-3 xl:h-[4rem] gap-5 xl:grid-rows-1 items-center xl:!items-center xl:gap-5 px-6'>
-          <div className='xl:grid xl:grid-cols-[90px_1fr] xl:items-center '>
-            <div>
-              Category
-            </div>
-            <Select >
+    <div className="grid h-full grid-rows-[1fr_80px] gap-8 overflow-auto rounded-xl bg-red-100 p-3">
+      <div className="grid grid-rows-[auto_1fr] gap-5">
+        <div className="grid items-center gap-5 rounded-xl bg-white px-6 py-4 md:grid-cols-[1fr_1fr] md:grid-rows-2 xl:h-[4rem] xl:grid-cols-3 xl:grid-rows-1 xl:!items-center xl:gap-5 xl:py-0">
+          <div className="xl:grid xl:grid-cols-[90px_1fr] xl:items-center">
+            <div>Category</div>
+            <Select>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select a fruit" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  {
-                    categories.map((category, index) => (<SelectItem key={index} value={category.value}>{category.label}</SelectItem>))
-                  }
+                  {categories.map((category, index) => (
+                    <SelectItem key={index} value={category.value}>
+                      {category.label}
+                    </SelectItem>
+                  ))}
                 </SelectGroup>
               </SelectContent>
             </Select>
           </div>
 
-         <div className='xl:grid xl:grid-cols-[90px_1fr] xl:items-center '>
-            <div>
-              Amount
-            </div>
+          <div className="xl:grid xl:grid-cols-[90px_1fr] xl:items-center">
+            <div>Amount</div>
             <Input type="number" placeholder="Amount" />
           </div>
 
-          <div className='xl:grid xl:grid-cols-[90px_1fr] xl:items-center '>
-            <div>
-              Range
-            </div>
+          <div className="xl:grid xl:grid-cols-[90px_1fr] xl:items-center">
+            <div>Range</div>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={['DateRangePicker']}>
-                <DateRangePicker className='' />
+                <DateRangePicker className="" />
               </DemoContainer>
             </LocalizationProvider>
           </div>
-
-
         </div>
-        <Table className='bg-white rounded-xl px-6'>
+        <Table className="rounded-xl bg-white px-6">
           <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader className='text-lg bg-gray-50 h-[50px]'>
+          <TableHeader className="h-[50px] bg-gray-50 text-lg">
             <TableRow>
               <TableHead className="w-[100px]">Invoice</TableHead>
               <TableHead>Status</TableHead>
@@ -164,7 +157,7 @@ const TransactionManagementClient = () => {
           </TableHeader>
           <TableBody>
             {invoices.map((invoice) => (
-              <TableRow key={invoice.invoice} className='hover:bg-gray-50 h-[50px]'>
+              <TableRow key={invoice.invoice} className="h-[50px] hover:bg-gray-50">
                 <TableCell className="font-medium">{invoice.invoice}</TableCell>
                 <TableCell>{invoice.paymentStatus}</TableCell>
                 <TableCell>{invoice.paymentMethod}</TableCell>
@@ -206,9 +199,8 @@ const TransactionManagementClient = () => {
           </PaginationContent>
         </Pagination>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default TransactionManagementClient
+export default TransactionManagementClient;

@@ -29,9 +29,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="grid h-screen grid-rows-[80px_1fr]">
           <TopBar />
-          <div className="grid grid-cols-[auto_1fr] duration-50000 transition-all">
+          <div className="grid grid-cols-[auto_1fr] transition-all duration-50000">
             <SideNavbar />
-            <div className='px-4 py-2 md:px-7 md:py-4 max-h-[calc(100vh-80px)]'>{children}</div>
+            <div className="max-h-[calc(100vh-80px)] px-4 py-2 md:px-7 md:py-4">{children}</div>
           </div>
         </div>
       </body>

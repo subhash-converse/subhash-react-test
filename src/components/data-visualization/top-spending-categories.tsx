@@ -1,7 +1,17 @@
 import React from 'react';
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  Rectangle,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
-const Example2 = ({data}:{data:any}) => {
+const Example2 = ({ data }: { data: any }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
@@ -21,10 +31,14 @@ const Example2 = ({data}:{data:any}) => {
         <Tooltip />
         <Legend />
         {/* <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} /> */}
-        <Bar dataKey="expence" fill="#82ca9d" activeBar={<Rectangle fill="red" stroke="purple" />} />
+        <Bar
+          dataKey="expence"
+          fill="#82ca9d"
+          activeBar={<Rectangle fill="red" stroke="purple" />}
+        />
       </BarChart>
     </ResponsiveContainer>
   );
 };
 
-export default Example2
+export default Example2;
