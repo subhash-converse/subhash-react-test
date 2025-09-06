@@ -120,3 +120,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+.MuiPickersSectionList-root{
+  padding: 9px 0px !important;
+  height: 36px;
+}
+
+.MuiPaper-root{
+  background-color: white !important;
+}
+
+.MuiStack-root.css-nby9nv-MuiStack-root{
+  padding: 0px !important;
+}
+
+.MuiButtonBase-root.MuiIconButton-root{
+padding:2px !important;
+}

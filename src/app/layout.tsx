@@ -31,7 +31,7 @@ export default function RootLayout({
           <TopBar />
           <div className="grid grid-cols-[auto_1fr] duration-50000 transition-all">
             <SideNavbar />
-            <div>{children}</div>
+            <div className='px-4 py-2 md:px-7 md:py-4 max-h-[calc(100vh-80px)]'>{children}</div>
           </div>
         </div>
       </body>

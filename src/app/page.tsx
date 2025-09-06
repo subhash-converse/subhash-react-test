@@ -1,7 +1,8 @@
+import DashboardClient from '@/client-components/dashboard-client';
 import React from 'react';
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return <DashboardClient/>;
 };
 
 export default Dashboard;
