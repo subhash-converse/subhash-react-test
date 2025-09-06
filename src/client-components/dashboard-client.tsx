@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import {
   Card,
   CardContent,
@@ -9,60 +10,48 @@ import {
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { AxiosInstance } from '../../services/axiosInstance';
+import { FaMinus,FaPlus } from "react-icons/fa"
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-]
+
+
+
+interface Transaction {
+  id: string;
+  amount: number;
+  category: string;
+  description: string;
+  date: string;
+  type: 'income' | 'expense';
+}
+
+
+type DataInterFace = {
+  "total_balance": number,
+  "monthly_income": number,
+  "monthly_expences": number,
+  "savings_rate": number,
+  "percentage-changes": number,
+  "recent-transactions": Transaction[]
+}
 
 const DashboardClient = () => {
+  const [data, setData] = useState<DataInterFace>()
+  useEffect(() => {
+    AxiosInstance.get('/transactions')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        // setError(error.message);
+      });
+  }, []);
+
   return (
     <div className='bg-red-100 p-3 rounded-xl h-full overflow-auto grid grid-rows-[auto_1fr] gap-8'>
       <div className='grid grid-rows-4 gap-2 md:grid-cols-4 md:grid-rows-1 md:gap-7 w-full '>
@@ -72,7 +61,7 @@ const DashboardClient = () => {
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`₹ ${1000}`}</p>
+            <p className='text-2xl font-bold text-end'>{`₹ ${data?.total_balance}`}</p>
           </CardContent>
 
         </Card>
@@ -82,7 +71,7 @@ const DashboardClient = () => {
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`₹ ${5000}`}</p>
+            <p className='text-2xl font-bold text-end'>{`₹ ${data?.monthly_income}`}</p>
           </CardContent>
 
         </Card>
@@ -92,7 +81,7 @@ const DashboardClient = () => {
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`₹ ${2000}`}</p>
+            <p className='text-2xl font-bold text-end'>{`₹ ${data?.monthly_expences}`}</p>
           </CardContent>
 
         </Card>
@@ -102,7 +91,7 @@ const DashboardClient = () => {
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-2xl font-bold text-end'>{`${Number(String((5000 - 2000 / 5000) * 100).substring(0, 2))}%`}</p>
+            <p className='text-2xl font-bold text-end'>{`${data?.savings_rate}%`}</p>
           </CardContent>
 
         </Card>
@@ -114,37 +103,34 @@ const DashboardClient = () => {
             <CardDescription>Card Description</CardDescription>
           </CardHeader>
           <CardContent>
-             <p className='text-2xl font-bold text-end'>{`${Number(String((5000 - 2000 / 5000) * 100).substring(0, 2))}%`}</p>
+            <p className='text-2xl font-bold text-end'>{`${data?.['percentage-changes']}%`}</p>
           </CardContent>
 
         </Card>
         <div>
           <Table className='bg-white rounded-xl'>
-            <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader className='text-lg bg-gray-50 h-[50px]'>
               <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="w-[100px]">Id</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Category</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead >Type</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {invoices.map((invoice) => (
-                <TableRow key={invoice.invoice} className='hover:bg-gray-50 h-[50px]'>
-                  <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                  <TableCell>{invoice.paymentStatus}</TableCell>
-                  <TableCell>{invoice.paymentMethod}</TableCell>
-                  <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+              {Array.isArray(data?.['recent-transactions']) && data?.['recent-transactions'] .map((transactions,index) => (
+                <TableRow key={index} className='hover:bg-gray-50 h-[50px]'>
+                  <TableCell className="font-medium">{transactions.id}</TableCell>
+                  <TableCell>{transactions.amount}</TableCell>
+                  <TableCell>{transactions.category}</TableCell>
+                  <TableCell>{transactions.description}</TableCell>
+                  <TableCell>{transactions.date}</TableCell>
+                  <TableCell><div className='flex gap-2 items-center'>{transactions.type === "income" ? <span className='text-green-400'><FaPlus/></span>  : <span className='text-red-400'><FaMinus/></span>} <span>{transactions.type}</span></div></TableCell>
                 </TableRow>
               ))}
             </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
-                <TableCell className="text-right">$2,500.00</TableCell>
-              </TableRow>
-            </TableFooter>
           </Table>
         </div>
       </div>

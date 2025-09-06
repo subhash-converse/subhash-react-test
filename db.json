@@ -1,6 +1,320 @@
 {
-  "users": [
-    { "id": 1, "name": "John Doe", "email": "john@example.com" },
-    { "id": 2, "name": "Jane Smith", "email": "jane@example.com" }
-  ]
+    "transactions": {
+        "total_balance": 1000,
+        "monthly_income": 5000,
+        "monthly_expences": 5000,
+        "savings_rate": 45,
+        "percentage-changes": 65,
+        "recent-transactions": [
+            {
+                "id": "trans001",
+                "amount": 1000,
+                "category": "food",
+                "description": "abc",
+                "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+                "type": "income"
+            },
+            {
+                "id": "trans002",
+                "amount": 1000,
+                "category": "Food",
+                "description": "abc",
+                "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+                "type": "expense"
+            },
+            {
+                "id": "trans002",
+                "amount": 1000,
+                "category": "Food",
+                "description": "abc",
+                "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+                "type": "income"
+            },
+            {
+                "id": "trans002",
+                "amount": 1000,
+                "category": "Food",
+                "description": "abc",
+                "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+                "type": "income"
+            },
+            {
+                "id": "trans002",
+                "amount": 1000,
+                "category": "Food",
+                "description": "abc",
+                "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+                "type": "income"
+            },
+            {
+                "id": "trans002",
+                "amount": 1000,
+                "category": "Food",
+                "description": "abc",
+                "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+                "type": "expense"
+            }
+        ]
+    },
+    "transactions_all": [
+        {
+            "id": "trans001",
+            "amount": 1000,
+            "category": "food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "expense"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "expense"
+        },
+        {
+            "id": "trans001",
+            "amount": 1000,
+            "category": "food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "expense"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "expense"
+        },
+        {
+            "id": "trans001",
+            "amount": 1000,
+            "category": "food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "expense"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "income"
+        },
+        {
+            "id": "trans002",
+            "amount": 1000,
+            "category": "Food",
+            "description": "abc",
+            "date": "Sat Sep 06 2025 17:44:04 GMT+0530 (India Standard Time)",
+            "type": "expense"
+        }
+    ],
+    "data_visuals": {
+        "spending_by_category": {
+            "data": [
+                {
+                    "name": "Food",
+                    "value": 2400
+                },
+                {
+                    "name": "Transport",
+                    "value": 4567
+                },
+                {
+                    "name": "Entertainment",
+                    "value": 1398
+                },
+                {
+                    "name": "Bills",
+                    "value": 9800
+                },
+                {
+                    "name": "Snaks",
+                    "value": 3908
+                },
+                {
+                    "name": "Group F",
+                    "value": 4800
+                }
+            ]
+        },
+        "income_vs_expenses": {
+            "data": [
+                {
+                    "name": "Jan",
+                    "income": 4000,
+                    "expence": 2400,
+                    "amt": 2400
+                },
+                {
+                    "name": "Feb",
+                    "income": 3000,
+                    "expence": 1398,
+                    "amt": 2210
+                },
+                {
+                    "name": "Mar",
+                    "income": 2000,
+                    "expence": 9800,
+                    "amt": 2290
+                },
+                {
+                    "name": "Jun",
+                    "income": 2780,
+                    "expence": 3908,
+                    "amt": 2000
+                },
+                {
+                    "name": "Jul",
+                    "income": 1890,
+                    "expence": 4800,
+                    "amt": 2181
+                },
+                {
+                    "name": "Aug",
+                    "income": 2390,
+                    "expence": 3800,
+                    "amt": 2500
+                },
+                {
+                    "name": "Sep",
+                    "income": 3490,
+                    "expence": 4300,
+                    "amt": 2100
+                }
+            ]
+        },
+        "top_spending_categories": {
+            "data": [
+                {
+                    "name": "Food",
+                    "expence": 4000,
+                    "amt": 2400
+                },
+                {
+                    "name": "Transport",
+                    "expence": 3000,
+                    "amt": 2210
+                },
+                {
+                    "name": "Entertainment",
+                    "expence": 2000,
+                    "amt": 2290
+                },
+                {
+                    "name": "Bills",
+                    "expence": 2780,
+                    "amt": 2000
+                },
+                {
+                    "name": "Bills",
+                    "expence": 1890,
+                    "amt": 2181
+                },
+                {
+                    "name": "Income",
+                    "expence": 2390,
+                    "amt": 2500
+                },
+                {
+                    "name": "Snaks",
+                    "expence": 3490,
+                    "amt": 2100
+                }
+            ]
+        }
+    }
 }
